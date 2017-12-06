@@ -4,9 +4,15 @@
 
 /**
  * sealed修饰的类默认为open，而且子类只能作为嵌套类或内部类集成
+ * sealed类的构造方法都是私有的，不能被实例化
  */
 sealed class Main{
-    val field:String="field string"
+    /**
+     * 可变属性，set方法私有，不能在类的外部修改该属性
+     */
+    var field:String="field string"
+        private  set
+
     companion object {
         val TAG =this::class.simpleName
 
